@@ -21,11 +21,31 @@ The general notion of syntax and semantics in the context of programming languag
 [HumanEval benchmark](https://github.com/openai/human-eval) introduced in the [Codex](https://arxiv.org/abs/2107.03374) is a popular benchmark widely used to measure the performance of CodeLMs. It is a benchmark evaluating function level code completion by CodeLMs for functional correctness measuring the accuracy, passing the given test cases within first `k` out of `n` samples. 
 
 ## Diversity Metrics
-The most basic coherent way to measure diversity would be to look at the latent representations of different completions given a prompt. This can be done by using a good embedding model and doing some cluster analysis in the latent representation of different completion given.
+The coherent way to quantify diversity would be to look at the latent representations of different completions given a prompt. This can be done by using a good embedding model and doing some cluster analysis in the latent representation of different completion given. While this method has it's shortcomings, it is a good starting point to quantify diversity. But the ideal end goal would be to measure how semantically diverse and functionally equivalent the generations are given a singular prompt. 
 
 {% include figure.liquid loading="eager" path="assets/img/div_pipeline.png" class="diversity codeLMs" zoomable=true %}
 
 
+
+## Limitation of Code Embedding models to model semantics
+Unlike natural language wherein, the semantics of a sentence can be understood by looking at the words and their order, in the context of programming languages, the semantics of a code snippet is not just the syntactical elements and their order. The semantics of a code snippet is also dependent on the structure of the code, the states used, the functions called, the libraries imported, etc. This makes it difficult to model the semantics of a code snippet using just the lexical tokens and their order. And this makes the model heavily biased to syntax rather than actual semantic similarity. For instance, consider three functions,
+```python
+def func_a(l):
+    return max(l)
+
+def func_b(l):
+  max_element = l[0]
+  for i in l:
+      if i > max_element:
+          max_element = i
+  return max_element
+
+def func_c(l):
+  max_element = l[0] 
+  return max_element
+```
+`func_a` and `func_b` are semantically similar functionally trying to find the maximum element in a list. But `func_c` is actually bugged though naming conventions of the variable tends to be make the model map the latents to be similar. Though the actual semantically similar functional equivalent of `func_a` is `func_b`. The model tend to be severely biased towards the syntax rather than the actual semantics of the code.
+{% include figure.liquid loading="eager" path="assets/img/embd_plot.png" class="Embedding dataset" zoomable=true %}
 
 ## Cite
 ```
