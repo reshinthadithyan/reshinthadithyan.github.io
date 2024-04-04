@@ -13,12 +13,17 @@ Code Language Models are used in the context of code completion and chat interfa
 ## Semantic and Syntactic Diversity
 The general notion of syntax and semantics in the context of programming languages is slightly different from that of natural languages. In the context of programming languages syntax refers to the structure of the code, the rules that govern the structure of the code. Semantics refers to the intention of a given piece of code. Here is a small example of semantically similar code snippets which can be expressed varied syntax.
 
+![](https://raw.githubusercontent.com/reshinthadithyan/reshinthadithyan.github.io/master/assets/img/semantic_similar.png)
 {% include figure.liquid loading="eager" path="assets/img/semantic_similar.png" class="semantically similar code" zoomable=true %}
 
  The formal structure of the code allows for a wide range of syntactic variations. This is a key difference between natural languages and programming languages. 
 
 ## HumanEval Benchmark
+[HumanEval benchmark](https://github.com/openai/human-eval) introduced in the [Codex](https://arxiv.org/abs/2107.03374) is a popular benchmark widely used to measure the performance of CodeLMs. It is a benchmark evaluating function level code completion by CodeLMs for functional correctness measuring the accuracy, passing the given test cases within first `k` out of `n` samples. 
 
+## Diversity Metrics
+The most basic coherent way to measure diversity would be to look at the latent representations of different completions given a prompt. This can be done by using a good embedding model and doing some cluster analysis in the latent representation of different completion given.
+![](https://raw.githubusercontent.com/reshinthadithyan/reshinthadithyan.github.io/master/assets/img/div_pipeline.png)
 
 
 ## Cite
