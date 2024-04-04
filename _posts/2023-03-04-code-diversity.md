@@ -14,7 +14,9 @@ Code Language Models are used in the context of code completion and chat interfa
 ## Semantic and Syntactic Diversity
 The general notion of syntax and semantics in the context of programming languages is slightly different from that of natural languages. In the context of programming languages syntax refers to the structure of the code, the rules that govern the structure of the code. Semantics refers to the intention of a given piece of code. Here is a small example of semantically similar code snippets which can be expressed varied syntax.
 
-![Semantic Similarity](/_posts/assets/semantic_similar.png)
+{% include figure.liquid loading="eager" path="_posts/assets/semantic_similar.png" class="semantically similar code" zoomable=true %}
+
+<!-- ![Semantic Similarity](/_posts/assets/semantic_similar.png) -->
 
 
 ## HumanEval Benchmark
