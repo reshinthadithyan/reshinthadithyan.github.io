@@ -6,7 +6,7 @@ subtitle: <a href='#'>Affiliations</a>
 
 profile:
   align: right
-  image: resh_prof_pic.jpg
+  image: resh_prof_pic.jpeg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Reshinth Adithyan</p>
