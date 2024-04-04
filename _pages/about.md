@@ -6,10 +6,10 @@ subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: resh_prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>London, England</p>
+    <p>Reshinth Adithyan</p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
@@ -25,3 +25,18 @@ I'm a research engineer at Stability AI based out of London. I'm part of the [Co
   <a href="https://twitter.com/reshinth_">Twitter</a> &nbsp;/&nbsp;
   <a href="https://github.com/reshinthadithyan/">Github</a>
 </p>
+
+
+<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+<tr>
+<td style="padding:20px;width:100%;vertical-align:middle">
+  <h2>Research</h2>
+  <p>
+    I'm interested in,
+    <md-block>
+      <ul>
+        <li>Large-scale pretraining of language models</li>
+        <li> CodeLMs</li>
+        <li>Interpreter grounded CodeLMs</li>
+      </ul>
+    </md-block>
