@@ -20,7 +20,7 @@ I'm a research engineer at Stability AI based out of London. I'm part of the [Co
 
 <p style="text-align:center">
   <a href="mailto:reshinth.adith@gmail.com">Email</a> &nbsp;/&nbsp;
-  <a href="data/Reshinth_Adithyan_CV.pdf">CV</a> &nbsp;/&nbsp;
+  <!-- <a href="data/Reshinth_Adithyan_CV.pdf">CV</a> &nbsp;/&nbsp; -->
   <a href="https://scholar.google.com/citations?user=Xlw_uwEAAAAJ">Scholar</a> &nbsp;/&nbsp;
   <a href="https://twitter.com/reshinth_">Twitter</a> &nbsp;/&nbsp;
   <a href="https://github.com/reshinthadithyan/">Github</a>
