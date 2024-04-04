@@ -51,4 +51,7 @@ I was part of,
 - [Method and system for translation of codes based on semantic similarity](https://patents.google.com/patent/US20230034984A1/en?inventor=Reshinth&oq=Reshinth)
 - [Method and system for inferencing logic out of an application source](https://patents.google.com/patent/US11487533B2/en?inventor=Reshinth&oq=Reshinth)
 - [Method and system for extracting natural language elements embedded in application source code](https://patents.google.com/patent/US11853710B2/en?inventor=Reshinth&oq=Reshinth)
+
+
+
 ---
