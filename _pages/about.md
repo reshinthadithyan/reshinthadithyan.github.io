@@ -9,17 +9,19 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>London, England</p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I'm a research engineer at Stability AI based out of London. I'm part of the [Code.AI Team](https://www.code.ai) at Stability AI, I predominantly work on large-scale pretraining of code models. During my time at Stability AI, I've been working on [Stable Code suite of models](https://huggingface.co/collections/stabilityai/stablecode-64f9dfb4ebc8a1be0a3f7650). I was also one of the core members of [Code.AI](https://code.ai), a community of researchers and engineers working on Code Intelligence and Machine Learning aided Code Completion systems. I was a major contributor to one of the first open source Code Language Model <a href="https://huggingface.co/CodedotAI">Code Clippy</a>.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+<p style="text-align:center">
+  <a href="mailto:reshinth.adith@gmail.com">Email</a> &nbsp;/&nbsp;
+  <a href="data/Reshinth_Adithyan_CV.pdf">CV</a> &nbsp;/&nbsp;
+  <a href="https://scholar.google.com/citations?user=Xlw_uwEAAAAJ">Scholar</a> &nbsp;/&nbsp;
+  <a href="https://twitter.com/reshinth_">Twitter</a> &nbsp;/&nbsp;
+  <a href="https://github.com/reshinthadithyan/">Github</a>
+</p>
