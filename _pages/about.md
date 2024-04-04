@@ -38,7 +38,7 @@ I'm interested in,
 
 ## Previously
 
-I'm interested in,
+I was part of,
 
 - *2022-2023* - **Research Engineer @ Saama Technologies, India** - Focusing on ML aided Program Synthesis to solve clinical transformations.
 - *2019-2022* - **Research Engineer @ Mastercraft Labs, TCS, India** - Focusing on ML aided Static Analysis for COBOL.
