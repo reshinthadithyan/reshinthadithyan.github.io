@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='#'>Affiliations</a>
 
 profile:
   align: right
@@ -26,17 +26,29 @@ I'm a research engineer at Stability AI based out of London. I'm part of the [Co
   <a href="https://github.com/reshinthadithyan/">Github</a>
 </p>
 
+---
 
-<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-<tr>
-<td style="padding:20px;width:100%;vertical-align:middle">
-  <h2>Research</h2>
-  <p>
-    I'm interested in,
-    <md-block>
-      <ul>
-        <li>Large-scale pretraining of language models</li>
-        <li> CodeLMs</li>
-        <li>Interpreter grounded CodeLMs</li>
-      </ul>
-    </md-block>
+## Research
+
+I'm interested in,
+
+- Large-scale pretraining of language models
+- CodeLMs and Qualitative Evaluations
+- Interpreter grounded CodeLMs
+
+## Previously
+
+I'm interested in,
+
+- *2022-2023* - **Research Engineer @ Saama Technologies, India** - Focusing on ML aided Program Synthesis to solve clinical transformations.
+- *2019-2022* - **Research Engineer @ Mastercraft Labs, TCS, India** - Focusing on ML aided Static Analysis for COBOL.
+- *2019* - **Research Intern @ Mastercraft Labs, TCS, India** - Focusing on ML aided Static Analysis for COBOL.
+
+## Publications
+
+- [Stable Code Technical Report](https://arxiv.org/abs/2404.01226)
+- [Stable LM 2 1.6B Technical Report](https://arxiv.org/abs/2402.17834)
+- [Method and system for translation of codes based on semantic similarity](https://patents.google.com/patent/US20230034984A1/en?inventor=Reshinth&oq=Reshinth)
+- [Method and system for inferencing logic out of an application source](https://patents.google.com/patent/US11487533B2/en?inventor=Reshinth&oq=Reshinth)
+- [Method and system for extracting natural language elements embedded in application source code](https://patents.google.com/patent/US11853710B2/en?inventor=Reshinth&oq=Reshinth)
+---
