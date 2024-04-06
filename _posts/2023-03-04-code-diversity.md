@@ -94,12 +94,14 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
   return False 
 ```      
 ### Exact AST match & Performance
+
+```markdown
 | model name          | AST exact match | pass@1 |
-|---------------------|-----------------|--------|
+| :----------- | :------------: | ------------: |
 | Deepseek-coder-1.3B | 60.7%           | 30.2%  |
 | Deepseek-coder-6.7B | 45.6%           | 45.0%  |
 | Deepseek-coder-33B  | 31.7%             | 53.6%  |
-
+```
 The above table was populated to measure exact AST matches of generations which are parseable valid code. The pass@1 metric is the percentage of generations that pass the test cases within the first generation. The results are quite interesting, the 1.3B model has the highest exact AST match amidst the generations. This is inline with the hypothesis that diversity is directly correlated with performance. More diverse the generations, more likely the generations contain the solution. Reiterating the diversity is defined as `functionally equivalent, semantically similar` generations.
 
 
