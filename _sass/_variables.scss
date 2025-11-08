@@ -40,3 +40,8 @@ $fa-font-path: "../webfonts";
 
 // Tabler icons location
 $ti-font-path: "../fonts";
+
+// Typography
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$heading-font-family: $base-font-family;
+$monospace-font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Source Code Pro", monospace;
