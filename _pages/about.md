@@ -40,9 +40,9 @@ I'm interested in,
 
 I was part of,
 
-- *2022-2023* - **Research Engineer @ Saama Technologies, India** - Focusing on ML aided Program Synthesis to solve clinical transformations.
-- *2019-2022* - **Research Engineer @ Mastercraft Labs, TCS, India** - Focusing on ML aided Static Analysis for COBOL.
-- *2019* - **Research Intern @ Mastercraft Labs, TCS, India** - Focusing on ML aided Static Analysis for COBOL.
+- _2022-2023_ - **Research Engineer @ Saama Technologies, India** - Focusing on ML aided Program Synthesis to solve clinical transformations.
+- _2019-2022_ - **Research Engineer @ Mastercraft Labs, TCS, India** - Focusing on ML aided Static Analysis for COBOL.
+- _2019_ - **Research Intern @ Mastercraft Labs, TCS, India** - Focusing on ML aided Static Analysis for COBOL.
 
 ## Publications
 
@@ -51,7 +51,5 @@ I was part of,
 - [Method and system for translation of codes based on semantic similarity](https://patents.google.com/patent/US20230034984A1/en?inventor=Reshinth&oq=Reshinth)
 - [Method and system for inferencing logic out of an application source](https://patents.google.com/patent/US11487533B2/en?inventor=Reshinth&oq=Reshinth)
 - [Method and system for extracting natural language elements embedded in application source code](https://patents.google.com/patent/US11853710B2/en?inventor=Reshinth&oq=Reshinth)
-
-
 
 ---
