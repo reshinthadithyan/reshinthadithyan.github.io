@@ -234,13 +234,7 @@ footer {
   padding: 2rem !important;
 }
 
-.navbar {
-  display: none !important;
-}
-
-.header-bar {
-  display: none !important;
-}
+/* Keep navbar visible - removed display: none */
 
 .post-list-item {
   border: none !important;
