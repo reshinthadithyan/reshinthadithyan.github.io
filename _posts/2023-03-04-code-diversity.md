@@ -63,7 +63,7 @@ For the sake of controlled experiment, we take the following models and do the a
 - deepseek-coder-6.7B
 - deepseek-coder-33B
 
-We use `n_samples=10` and `temperature=0.2`to maintain consistency across scale.  
+We use `n_samples=10` and `temperature=0.2`to maintain consistency across scale.
 The choice is with the assumption that they are trained on similar if not same amount of data and are base models with no high quality fine-tuning data encapsulated in the training run, since the dynamics of generation quality might differ post finetuning phase. We use average pairwise distance and squared sum error as the metrics to measure the closeness and tighness of the latent representations of the generations.
 
 <div>

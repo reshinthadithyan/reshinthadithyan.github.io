@@ -1,48 +1,83 @@
 /* Minimal Academic Personal Website CSS - Jason Wei Style */
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap");
 
 /* Reset and Base Override */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
 }
 
 html {
   font-size: 100%;
 }
 
-/* Typography - System Font Stack Override */
+/* Typography - Elegant Serif Font Stack with Subtle Grey Tones */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-  font-size: 16px !important;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 18px !important;
   line-height: 1.6 !important;
-  color: #222 !important;
-  background-color: #fff !important;
+  font-weight: 200 !important;
+  color: #444 !important;
+  background-color: #fafafa !important;
   padding: 2rem !important;
   max-width: 650px !important;
   margin: 0 auto !important;
 }
 
-/* Headings Override */
+/* Force serif font on all text elements */
+* {
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+}
+
+/* Specific text element overrides */
+.post-content,
+.page-content,
+article,
+main,
+.content,
+div,
+span,
+p,
+li,
+td,
+th,
+blockquote,
+.biography {
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  font-weight: 200 !important;
+}
+
+/* Headings Override - Jason Wei Style with Larger Titles and Subtle Grey */
 h1 {
-  font-size: 1.5rem !important;
-  font-weight: 600 !important;
-  margin-bottom: 1rem !important;
-  line-height: 1.3 !important;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 2.25rem !important;
+  font-weight: 300 !important;
+  margin-bottom: 1.5rem !important;
+  line-height: 1.2 !important;
+  color: #333 !important;
 }
 
 h2 {
-  font-size: 1.25rem !important;
-  font-weight: 600 !important;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 1.75rem !important;
+  font-weight: 300 !important;
   margin-top: 2rem !important;
-  margin-bottom: 0.75rem !important;
+  margin-bottom: 1rem !important;
+  color: #333 !important;
 }
 
 h3 {
-  font-size: 1.1rem !important;
-  font-weight: 600 !important;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 300 !important;
   margin-top: 1.5rem !important;
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+  color: #333 !important;
 }
 
 /* Paragraphs Override */
@@ -50,18 +85,28 @@ p {
   margin-bottom: 1rem !important;
 }
 
-/* Links Override */
+/* Links Override - Beautiful Dark Teal with Shadow */
 a {
-  color: #0066cc !important;
-  text-decoration: none !important;
+  color: #0d7377 !important;
+  text-decoration: underline !important;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  text-underline-offset: 3px !important;
+  text-decoration-color: #14a085 !important;
+  text-decoration-thickness: 1px !important;
+  text-shadow: 0 0.5px 1px rgba(13, 115, 119, 0.05) !important;
+  transition: all 0.3s ease !important;
 }
 
 a:hover {
-  text-decoration: underline !important;
+  color: #0a5d61 !important;
+  text-decoration-color: #0d7377 !important;
+  text-shadow: 0 1px 2px rgba(13, 115, 119, 0.08) !important;
+  transform: translateY(-0.5px) !important;
 }
 
 a:visited {
-  color: #0066cc !important;
+  color: #0d7377 !important;
+  text-decoration-color: #14a085 !important;
 }
 
 /* Lists Override */
@@ -77,33 +122,169 @@ li {
 
 /* Inline elements Override */
 strong {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 
 em {
   font-style: italic !important;
 }
 
-/* Code Override */
+/* Code Override - Professional coding monospace fonts */
 code {
-  font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace !important;
-  font-size: 0.875em !important;
-  background-color: #f5f5f5 !important;
+  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+  font-size: 0.9em !important;
+  background-color: #f8f8f8 !important;
   padding: 0.125rem 0.25rem !important;
-  border-radius: 3px !important;
+  border-radius: 4px !important;
+  color: #444 !important;
+  font-weight: 300 !important;
 }
 
 pre {
-  background-color: #f5f5f5 !important;
-  padding: 1rem !important;
+  background-color: #f8f8f8 !important;
+  padding: 1.25rem !important;
   overflow-x: auto !important;
-  margin-bottom: 1rem !important;
-  border-radius: 5px !important;
+  margin-bottom: 1.5rem !important;
+  border-radius: 6px !important;
+  border: 1px solid #ddd !important;
+  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", "Consolas", "Courier New", monospace !important;
 }
 
 pre code {
   background-color: transparent !important;
   padding: 0 !important;
+  color: #444 !important;
+  font-size: 0.9em !important;
+}
+
+/* Blog specific code block overrides with maximum specificity */
+.post .post-content code,
+.post .page-content code,
+.post article code,
+.post main code,
+.post .content code,
+.post .highlight code,
+.post .language-plaintext code,
+div.post .post-content code,
+div.post article code,
+#markdown-content code,
+div#markdown-content code {
+  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+  font-size: 0.9em !important;
+  background-color: #f8f8f8 !important;
+  padding: 0.125rem 0.25rem !important;
+  border-radius: 4px !important;
+  color: #444 !important;
+  font-weight: 300 !important;
+}
+
+.post .post-content pre,
+.post .page-content pre,
+.post article pre,
+.post main pre,
+.post .content pre,
+.post .highlight pre,
+div.post .post-content pre,
+div.post article pre,
+#markdown-content pre,
+div#markdown-content pre {
+  background-color: #f8f8f8 !important;
+  padding: 1.25rem !important;
+  overflow-x: auto !important;
+  margin-bottom: 1.5rem !important;
+  border-radius: 6px !important;
+  border: 1px solid #ddd !important;
+  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+}
+
+.post .post-content pre code,
+.post .page-content pre code,
+.post article pre code,
+.post main pre code,
+.post .content pre code,
+.post .highlight pre code,
+div.post .post-content pre code,
+div.post article pre code,
+#markdown-content pre code,
+div#markdown-content pre code {
+  background-color: transparent !important;
+  padding: 0 !important;
+  color: #444 !important;
+  font-size: 0.9em !important;
+  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+}
+
+/* Additional overrides for syntax highlighting classes */
+.highlight .code,
+.highlighter-rouge .highlight,
+.language-python code,
+.language-javascript code,
+.language-bash code,
+.language-json code,
+.language-yaml code,
+.language-html code,
+.language-css code,
+.language-scss code,
+.language-ruby code,
+.language-markdown code,
+.language-text code,
+.language-plaintext code {
+  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+}
+
+/* Ultra-specific code block fixes for blogs - maximum specificity */
+body .post .post-content code,
+body .post article code,
+body div.post .post-content code,
+body div.post article code,
+body #markdown-content code,
+body div#markdown-content code,
+.post-content .highlight code,
+.post-content .highlighter-rouge code,
+.post-content pre code,
+article .highlight code,
+article .highlighter-rouge code,
+article pre code,
+div.highlight code,
+div.highlighter-rouge code,
+.highlight div code,
+.language-plaintext.highlighter-rouge .highlight code,
+.language-python.highlighter-rouge .highlight code,
+.language-javascript.highlighter-rouge .highlight code,
+.language-bash.highlighter-rouge .highlight code,
+.language-json.highlighter-rouge .highlight code,
+.language-html.highlighter-rouge .highlight code,
+.language-css.highlighter-rouge .highlight code,
+.language-text.highlighter-rouge .highlight code {
+  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+  font-size: 0.9em !important;
+  background-color: #f8f8f8 !important;
+  padding: 0.125rem 0.25rem !important;
+  border-radius: 4px !important;
+  color: #444 !important;
+  font-weight: 300 !important;
+}
+
+/* Ultra-specific pre block fixes */
+body .post .post-content pre,
+body .post article pre,
+body div.post .post-content pre,
+body div.post article pre,
+body #markdown-content pre,
+body div#markdown-content pre,
+.post-content .highlight pre,
+.post-content .highlighter-rouge pre,
+article .highlight pre,
+article .highlighter-rouge pre,
+div.highlight pre,
+div.highlighter-rouge pre {
+  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+  background-color: #f8f8f8 !important;
+  padding: 1.25rem !important;
+  overflow-x: auto !important;
+  margin-bottom: 1.5rem !important;
+  border-radius: 6px !important;
+  border: 1px solid #ddd !important;
 }
 
 /* Blockquotes Override */
@@ -121,22 +302,68 @@ hr {
   margin: 2rem 0 !important;
 }
 
-/* Tables Override */
+/* Tables Override - Force black text everywhere */
 table {
   width: 100% !important;
   border-collapse: collapse !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 1.5rem !important;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  color: #444 !important;
 }
 
 th,
 td {
   text-align: left !important;
-  padding: 0.5rem !important;
+  padding: 0.75rem !important;
   border-bottom: 1px solid #ddd !important;
+  color: #444 !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  background-color: transparent !important;
 }
 
 th {
-  font-weight: 600 !important;
+  font-weight: 400 !important;
+  color: #333 !important;
+  background-color: #fafafa !important;
+  border-bottom: 2px solid #ccc !important;
+}
+
+tr:hover {
+  background-color: #f8f8f8 !important;
+}
+
+/* Blog specific table overrides */
+.post-content table,
+.page-content table,
+article table,
+main table,
+.content table {
+  color: #444 !important;
+}
+
+.post-content th,
+.post-content td,
+.page-content th,
+.page-content td,
+article th,
+article td,
+main th,
+main td,
+.content th,
+.content td {
+  color: #444 !important;
+  background-color: transparent !important;
+}
+
+.post-content th,
+.page-content th,
+article th,
+main th,
+.content th {
+  color: #333 !important;
+  background-color: #fafafa !important;
 }
 
 /* Media Queries for Responsive Design */
@@ -147,11 +374,40 @@ th {
   }
 
   h1 {
-    font-size: 1.35rem !important;
+    font-size: 1.75rem !important;
   }
 
   h2 {
-    font-size: 1.15rem !important;
+    font-size: 1.4rem !important;
+  }
+
+  h3 {
+    font-size: 1.2rem !important;
+  }
+
+  /* Large titles on mobile */
+  .post-title,
+  .page-title,
+  h1.post-title,
+  h1.page-title,
+  .post-header h1,
+  .page-header h1,
+  article h1,
+  .entry-title {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Blog post titles in lists on mobile */
+  .post-list .post-title,
+  .post-list-item h3,
+  .post-list-item .post-title {
+    font-size: 1.5rem !important;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem !important;
   }
 }
 
@@ -183,7 +439,7 @@ th {
 }
 
 .paper-title {
-  font-weight: 500 !important;
+  font-weight: 400 !important;
 }
 
 .paper-authors {
@@ -192,7 +448,8 @@ th {
 }
 
 .paper-venue {
-  color: #0066cc !important;
+  color: #0d7377 !important;
+  text-shadow: 0 0.5px 1px rgba(13, 115, 119, 0.05) !important;
 }
 
 /* Bio/Header Section */
@@ -209,32 +466,198 @@ th {
   margin-bottom: 0.5rem !important;
 }
 
-/* Contact Links */
-.contact-links {
-  margin-top: 1rem !important;
+/* About page optimizations without photo */
+.post {
+  max-width: 650px !important;
+  margin: 0 auto !important;
 }
 
-.contact-links a {
-  margin-right: 1rem !important;
+.post-header {
+  text-align: center !important;
+  margin-bottom: 3rem !important;
 }
 
-/* Footer Override */
+.post-header h1 {
+  font-size: 2.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Clean content layout */
+.post article {
+  line-height: 1.8 !important;
+}
+
+.post article p {
+  margin-bottom: 1.5rem !important;
+  text-align: justify !important;
+}
+
+/* Section spacing */
+.post article h2 {
+  margin-top: 3rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Remove profile float styles when no image */
+.profile {
+  float: none !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Footer Override - Minimal Contact Links Theme */
 footer {
   margin-top: 3rem !important;
-  padding-top: 1.5rem !important;
+  padding: 1.5rem 0 !important;
   border-top: 1px solid #ddd !important;
-  font-size: 0.875rem !important;
-  color: #666 !important;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-weight: 200 !important;
+  background-color: #fafafa !important;
 }
 
-/* Override Bootstrap and al-folio specific styles */
+/* Footer contact links */
+.footer-contact {
+  text-align: center !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+}
+
+.footer-contact a {
+  color: #0d7377 !important;
+  text-decoration: underline !important;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 1rem !important;
+  font-weight: 200 !important;
+  text-underline-offset: 3px !important;
+  text-decoration-color: #14a085 !important;
+  text-shadow: 0 0.5px 1px rgba(13, 115, 119, 0.05) !important;
+  margin: 0 0.75rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.footer-contact a:hover {
+  color: #0a5d61 !important;
+  text-decoration-color: #0d7377 !important;
+  text-shadow: 0 1px 2px rgba(13, 115, 119, 0.08) !important;
+  transform: translateY(-0.5px) !important;
+}
+
+.footer-contact a:visited {
+  color: #0d7377 !important;
+  text-decoration-color: #14a085 !important;
+}
+
+/* Social Icons Styling with Subtle Grey */
+.social {
+  margin-top: 1rem !important;
+  text-align: center !important;
+}
+
+.social a {
+  color: #555 !important;
+  font-size: 1.2rem !important;
+  margin: 0 0.5rem !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+
+.social a:hover {
+  color: #333 !important;
+  opacity: 0.8 !important;
+  transform: translateY(-2px) !important;
+  transition: all 0.3s ease !important;
+}
+
+.social i {
+  font-size: 1.2rem !important;
+}
+
+
+/* Override Bootstrap and al-folio specific styles with Subtle Grey Background */
 .container-fluid {
   max-width: 650px !important;
   margin: 0 auto !important;
   padding: 2rem !important;
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  background-color: #fafafa !important;
 }
 
-/* Keep navbar visible - removed display: none */
+/* Al-folio specific text elements */
+.about,
+.news,
+.social,
+.contact-note,
+.profile,
+.description,
+.page-description {
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  font-weight: 200 !important;
+}
+
+/* Page and Post Titles - Extra Large with Subtle Grey */
+.post-title,
+.page-title,
+h1.post-title,
+h1.page-title,
+.post-header h1,
+.page-header h1,
+article h1,
+.entry-title {
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 2.75rem !important;
+  font-weight: 300 !important;
+  line-height: 1.1 !important;
+  margin-bottom: 2rem !important;
+  color: #333 !important;
+}
+
+/* Blog post titles in lists */
+.post-list .post-title,
+.post-list-item h3,
+.post-list-item .post-title {
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 1.9rem !important;
+  font-weight: 300 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Navigation and Header Styling - Dark Teal Theme */
+.navbar {
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 18px !important;
+  font-weight: 200 !important;
+}
+
+.navbar-nav .nav-link {
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  color: #0d7377 !important;
+  text-decoration: underline !important;
+  font-size: 18px !important;
+  font-weight: 200 !important;
+  text-underline-offset: 3px !important;
+  text-decoration-color: #14a085 !important;
+  text-shadow: 0 0.5px 1px rgba(13, 115, 119, 0.05) !important;
+  transition: all 0.3s ease !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #0a5d61 !important;
+  text-decoration-color: #0d7377 !important;
+  text-shadow: 0 1px 2px rgba(13, 115, 119, 0.08) !important;
+  transform: translateY(-0.5px) !important;
+}
+
+.navbar-brand {
+  font-family: 'Iowan Old Style BT', Georgia, serif !important;
+  font-size: 2rem !important;
+  font-weight: 300 !important;
+  color: #333 !important;
+  text-decoration: none !important;
+}
 
 .post-list-item {
   border: none !important;
