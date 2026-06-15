@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attempts to measure diversity of CodeLM generations — Reshinth Adithyan</title>
+  <meta name="description" content="Observing and measuring the diversity of code-LM generations, and the shortcomings of current methods to measure it.">
+  <meta name="author" content="Reshinth Adithyan">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Attempts to measure diversity of CodeLM generations">
+  <meta property="og:description" content="Observing and measuring the diversity of code-LM generations.">
+  <meta property="og:url" content="https://reshinthadithyan.github.io/writing/codelm-diversity.html">
+
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  </button>
+
+  <main class="wrap article">
+    <a class="back-link" href="/">← Reshinth Adithyan</a>
+
+    <header class="article-head">
+      <h1 class="article-title">Attempts to measure diversity of CodeLM generations</h1>
+      <p class="article-meta">4 March 2023 · codelms, analysis, benchmarking</p>
+    </header>
+
+    <h2>Introduction</h2>
+    <p>Code language models are used in the context of code completion and chat interfaces day in, day out by software developers to write and contribute to code bases. Programming languages are formal in nature, with a fixed, strict set of rules. This pushes us to study quantifying and measuring how diverse the generations produced by these models are in various settings — and more importantly, it makes us wonder what diversity even <em>is</em> in the context of code. This post aims to explore and understand the diversity of code-LM generations, and to surface various shortcomings in measuring it in controlled settings. Throughout, I use the <a href="https://github.com/openai/human-eval" target="_blank" rel="noopener">HumanEval benchmark</a>, which evaluates function-level code completion for functional correctness — measuring accuracy by passing the given test cases within the first <code>k</code> out of <code>n</code> samples.</p>
+
+    <h2>Semantic and syntactic diversity</h2>
+    <p>The general notion of syntax and semantics in programming languages is slightly different from that of natural language. Syntax refers to the structure of the code — the rules that govern how it is written. Semantics refers to the intention of a given piece of code. Here is a small example of semantically similar code snippets that can be expressed with varied syntax while remaining functionally equivalent.</p>
+
+    <figure>
+      <img src="/assets/img/semantic_similar.png" alt="Semantically similar code snippets expressed with different syntax" loading="lazy">
+    </figure>
+
+    <p>The formal structure of code allows for a wide range of syntactic variations. Diversity of a code LM in the context of code can thus be formally defined as <strong>functionally equivalent, semantically similar</strong> generations. While the notion of diversity might be very small in tiny snippets, it grows with more abstract, real-world software.</p>
+
+    <h2>HumanEval benchmark</h2>
+    <p>The <a href="https://github.com/openai/human-eval" target="_blank" rel="noopener">HumanEval benchmark</a>, introduced in <a href="https://arxiv.org/abs/2107.03374" target="_blank" rel="noopener">Codex</a>, is a popular benchmark widely used to measure the performance of code LMs. It evaluates function-level code completion for functional correctness, measuring accuracy by passing the given test cases within the first <code>k</code> out of <code>n</code> samples.</p>
+
+    <h2>Diversity metrics</h2>
+    <p>A coherent way to quantify diversity is to look at the latent representations of different completions given a prompt. This can be done by using a good embedding model and performing some cluster analysis over the latent representations of the completions. While this method has its shortcomings, it is a good starting point. The ideal end goal would be to measure how semantically diverse and functionally equivalent the generations are, given a single prompt.</p>
+
+    <figure>
+      <img src="/assets/img/div_pipeline.png" alt="Pipeline for measuring diversity of code-LM generations" loading="lazy">
+    </figure>
+
+    <h2>Limitations of code embedding models in modeling semantics</h2>
+    <p>Unlike natural language — where the semantics of a sentence can be understood by looking at the words and their order — the semantics of a code snippet is not just its syntactic elements and their order. It also depends on the structure of the code, the state used, the functions called, the libraries imported, and so on. This makes it difficult to model the semantics of a code snippet using just lexical tokens and their order, and it makes the model heavily biased toward syntax rather than actual semantic similarity. For instance, consider three functions:</p>
+
+    <pre><code>def func_a(l):
+    return max(l)
+
+def func_b(l):
+  max_element = l[0]
+  for i in l:
+      if i > max_element:
+          max_element = i
+  return max_element
+
+def func_c(l):
+  max_element = l[0]
+  return max_element</code></pre>
+
+    <p><code>func_a</code> and <code>func_b</code> are semantically similar — both find the maximum element of a list. But <code>func_c</code> is actually bugged, even though its variable naming nudges the model to map its latents close to the others. The true functional equivalent of <code>func_a</code> is <code>func_b</code>, yet the model tends to be severely biased toward syntax rather than the actual semantics of the code.</p>
+
+    <figure>
+      <img src="/assets/img/embd_plot.png" alt="Embedding plot of code generations" loading="lazy">
+    </figure>
+
+    <h2>Observations</h2>
+    <p>For a controlled experiment, we take the following models and run the analysis on them:</p>
+    <ul>
+      <li>deepseek-coder-1.3B</li>
+      <li>deepseek-coder-6.7B</li>
+      <li>deepseek-coder-33B</li>
+    </ul>
+    <p>We use <code>n_samples = 10</code> and <code>temperature = 0.2</code> to maintain consistency across scale. The choice assumes the models are trained on a similar — if not the same — amount of data, and are base models with no high-quality fine-tuning data encapsulated in the training run, since the dynamics of generation quality may differ after the fine-tuning phase. We use average pairwise distance and squared-sum error as the metrics to measure the closeness and tightness of the latent representations of the generations.</p>
+
+    <div class="embed">
+      <iframe height="229" seamless scrolling="no" loading="lazy"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS52RmWqYdfJTxe_gfQScU3eGNIdGpZ-Zs2LqQ6rMq4tOVBiPmONN6Dn-BiC7ks3Sam6B4B7Y-XN9DP/pubchart?oid=598483660&amp;format=interactive"></iframe>
+    </div>
+
+    <p>A first glance at the results suggests that the smaller models produce more diverse generations than the larger ones — but the reality is quite different.</p>
+
+    <h3>Scenario 1 — an easy-to-solve problem</h3>
+    <p>These are problems mostly solved by all three models within a <code>pass@100 / pass@10</code> cap. Careful exploration of the generations reveals how the 1.3B model specifically produces code with different newline and whitespace counts. An easy-to-solve example is shown below; in the 1.3B case the generated code was not functionally correct in 6 out of 10 cases.</p>
+
+    <pre><code>#1.3B--example-1
+from typing import List
+def has_close_elements(numbers: List[float],threshold: float) -> bool:
+    numbers.sort()
+    for i in range(1, len(numbers)):
+      if numbers[i] - numbers[i-1] < threshold:
+        return True
+    return False
+#1.3B--example-2
+def has_close_elements(numbers: List[float],threshold: float) -> bool:
+    numbers.sort()
+    for i in range(1 , len(numbers)) :
+      if numbers[i] - numbers[i-1] < threshold :
+        return True
+    return False</code></pre>
+
+    <p>For the same example, the 6.7B and 33B models consistently generate the exact same code snippet for easy problems.</p>
+
+    <pre><code>from typing import List
+def has_close_elements(numbers: List[float], threshold: float) -> bool:
+  for i in range(len(numbers)):
+    for j in range(i + 1, len(numbers)):
+      if abs(numbers[i] - numbers[j]) < threshold:
+        return True
+  return False</code></pre>
+
+    <h3>Exact AST match &amp; performance</h3>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Model</th><th class="num">AST exact match</th><th class="num">pass@1</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Deepseek-coder-1.3B</td><td class="num">60.7%</td><td class="num">30.2%</td></tr>
+          <tr><td>Deepseek-coder-6.7B</td><td class="num">45.6%</td><td class="num">45.0%</td></tr>
+          <tr><td>Deepseek-coder-33B</td><td class="num">31.7%</td><td class="num">53.6%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>This table measures exact AST matches among generations that are parseable, valid code. The <code>pass@1</code> metric is the percentage of generations that pass the test cases on the first generation. The results are quite interesting: the 1.3B model has the highest exact AST match among its generations. This is in line with the hypothesis that diversity is directly correlated with performance — more diverse generations are more likely to contain the solution. Reiterating: diversity is defined as <strong>functionally equivalent, semantically similar</strong> generations.</p>
+    <p>You can explore the solutions generated by these models <a href="https://huggingface.co/spaces/reshinthadith/CodeGen-Diversity" target="_blank" rel="noopener">here</a>.</p>
+
+    <h2>Conclusion and future directions</h2>
+    <p>A proper measure of diversity — defined as <strong>functionally equivalent, semantically similar</strong> generations — can act as a secondary metric to lean on, in addition to a model's correctness in generating a solution for a given problem. When a model produces high-quality, diverse generations, it increases the probability that the output search space contains the solution within a given turn. Current methods for measuring diversity in code are heavily biased toward syntax rather than the actual semantics that represent useful diversity. The future direction is to explore how to measure the actual diversity of code-LM generations.</p>
+
+    <h2>Cite</h2>
+    <pre><code>@inproceedings{reshint-code-lm-div,
+    title  = "How diverse are the generations of CodeLMs?",
+    author = "Reshinth Adithyan",
+    month  = april,
+    year   = "2024"}</code></pre>
+
+    <footer class="foot">
+      <span><a href="/">← Back home</a></span>
+      <span>© <span id="year">2026</span> Reshinth Adithyan</span>
+    </footer>
+  </main>
+
+  <script>
+    var root = document.documentElement;
+    document.querySelector('.theme-toggle').addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+    try { document.getElementById('year').textContent = new Date().getFullYear(); } catch (e) {}
+  </script>
+</body>
+</html>
