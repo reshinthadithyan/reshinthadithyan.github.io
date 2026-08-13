@@ -17,7 +17,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/site.css">
 
   <script>
@@ -69,7 +69,7 @@
     <h2>Limitations of code embedding models in modeling semantics</h2>
     <p>Unlike natural language — where the semantics of a sentence can be understood by looking at the words and their order — the semantics of a code snippet is not just its syntactic elements and their order. It also depends on the structure of the code, the state used, the functions called, the libraries imported, and so on. This makes it difficult to model the semantics of a code snippet using just lexical tokens and their order, and it makes the model heavily biased toward syntax rather than actual semantic similarity. For instance, consider three functions:</p>
 
-    <pre><code>def func_a(l):
+    <pre><code class="language-python">def func_a(l):
     return max(l)
 
 def func_b(l):
@@ -108,29 +108,29 @@ def func_c(l):
     <h3>Scenario 1 — an easy-to-solve problem</h3>
     <p>These are problems mostly solved by all three models within a <code>pass@100 / pass@10</code> cap. Careful exploration of the generations reveals how the 1.3B model specifically produces code with different newline and whitespace counts. An easy-to-solve example is shown below; in the 1.3B case the generated code was not functionally correct in 6 out of 10 cases.</p>
 
-    <pre><code>#1.3B--example-1
+    <pre><code class="language-python">#1.3B--example-1
 from typing import List
 def has_close_elements(numbers: List[float],threshold: float) -> bool:
     numbers.sort()
     for i in range(1, len(numbers)):
-      if numbers[i] - numbers[i-1] < threshold:
+      if numbers[i] - numbers[i-1] &lt; threshold:
         return True
     return False
 #1.3B--example-2
 def has_close_elements(numbers: List[float],threshold: float) -> bool:
     numbers.sort()
     for i in range(1 , len(numbers)) :
-      if numbers[i] - numbers[i-1] < threshold :
+      if numbers[i] - numbers[i-1] &lt; threshold :
         return True
     return False</code></pre>
 
     <p>For the same example, the 6.7B and 33B models consistently generate the exact same code snippet for easy problems.</p>
 
-    <pre><code>from typing import List
+    <pre><code class="language-python">from typing import List
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
   for i in range(len(numbers)):
     for j in range(i + 1, len(numbers)):
-      if abs(numbers[i] - numbers[j]) < threshold:
+      if abs(numbers[i] - numbers[j]) &lt; threshold:
         return True
   return False</code></pre>
 
@@ -155,15 +155,16 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     <p>A proper measure of diversity — defined as <strong>functionally equivalent, semantically similar</strong> generations — can act as a secondary metric to lean on, in addition to a model's correctness in generating a solution for a given problem. When a model produces high-quality, diverse generations, it increases the probability that the output search space contains the solution within a given turn. Current methods for measuring diversity in code are heavily biased toward syntax rather than the actual semantics that represent useful diversity. The future direction is to explore how to measure the actual diversity of code-LM generations.</p>
 
     <h2>Cite</h2>
-    <pre><code>@inproceedings{reshint-code-lm-div,
+    <pre><code class="language-bibtex">@inproceedings{reshint-code-lm-div,
     title  = "How diverse are the generations of CodeLMs?",
     author = "Reshinth Adithyan",
-    month  = april,
+    month  = apr,
     year   = "2024"}</code></pre>
 
     <footer class="foot">
       <span><a href="/">← Back home</a></span>
       <span>© <span id="year">2026</span> Reshinth Adithyan</span>
+      <span class="foot__credit">UI style borrowed from <a href="https://www.shayaanazeem.com/" target="_blank" rel="noopener">Shayaan Azeem</a>.</span>
     </footer>
   </main>
 
@@ -176,5 +177,6 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     });
     try { document.getElementById('year').textContent = new Date().getFullYear(); } catch (e) {}
   </script>
+  <script src="/assets/js/highlight.js" defer></script>
 </body>
 </html>
