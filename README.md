@@ -11,12 +11,19 @@ A hand-built static site — no framework, no build step.
 
 - `index.html` — the single-page site (about, research, publications, patents, experience, writing).
 - `writing/` — long-form posts as standalone HTML pages.
-- `assets/css/site.css` — the entire stylesheet: refined-minimal, light + dark.
+- `assets/css/site.css` — the entire stylesheet: light + dark.
 - `assets/img/` — images.
 
-Type is [Newsreader](https://fonts.google.com/specimen/Newsreader) for reading and
-[JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) for labels and code.
-The theme respects `prefers-color-scheme` and remembers the visitor's choice in `localStorage`.
+Type is [Manrope](https://fonts.google.com/specimen/Manrope) throughout, with the system
+mono stack for code. The theme respects `prefers-color-scheme` and remembers the visitor's
+choice in `localStorage`.
+
+## Credit
+
+The UI style — single sans family, white paper and near-black ink, and the flat
+highlighter chips behind inline links — is borrowed from
+[Shayaan Azeem](https://www.shayaanazeem.com/). The original is Next.js + Tailwind;
+this is a plain-CSS reimplementation of the look.
 
 ## Local preview
 
